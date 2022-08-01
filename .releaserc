@@ -1,36 +1,67 @@
 {
   "branches": [
-      {
-        "name": "main"
-      }
-   ],
+    {
+      "name": "main"
+    }
+  ],
   "repositoryUrl": "https://github.com/dmorina/semantic-release-test",
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    [
-      "@semantic-release/changelog",
-      {
-        "changelogFile": "CHANGELOG.md",
-        "changelogTitle": "# Semantic Versioning Changelog"
-      }
-    ],
-    [
-      "@semantic-release/git",
-      {
-        "assets": ["CHANGELOG.md"],
-        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-      }
-    ],
-    [
-      "@semantic-release/github",
-      {
-        "assets": [
-          {
-            "path": "release/**"
-          }
-        ]
-      }
-    ]
-  ]
+    "@semantic-release/git"
+  ],
+  "preset": "conventionalcommits",
+  "presetConfig": {
+     "types": [
+       {
+         "type": "feat",
+         "section": "Features"
+       },
+       {
+         "type": "feature",
+         "section": "Features"
+       },
+       {
+         "type": "fix",
+         "section": "Bug Fixes"
+       },
+       {
+         "type": "perf",
+         "section": "Performance Improvements"
+       },
+       {
+         "type": "revert",
+         "section": "Reverts"
+       },
+       {
+         "type": "docs",
+         "section": "Documentation"
+       },
+       {
+         "type": "style",
+         "section": "Styles"
+       },
+       {
+         "type": "chore",
+         "section": "Miscellaneous Chores"
+       },
+       {
+         "type": "refactor",
+         "section": "Code Refactoring"
+       },
+       {
+         "type": "test",
+         "section": "Tests"
+       },
+       {
+         "type": "build",
+         "section": "Build System"
+       },
+       {
+         "type": "ci",
+         "section": "Continuous Integration"
+       }
+     ]
+  },
+  "tagFormat": "${version}"
 }
