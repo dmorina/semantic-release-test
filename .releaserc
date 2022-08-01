@@ -6,7 +6,9 @@
   ],
   "repositoryUrl": "https://github.com/dmorina/semantic-release-test",
   "plugins": [
-    "@semantic-release/commit-analyzer",
+    ["@semantic-release/commit-analyzer", {
+      "preset": "angular"
+    }],
     "@semantic-release/release-notes-generator",
     "@semantic-release/github",
     "@semantic-release/git"
